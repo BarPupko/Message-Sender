@@ -1,0 +1,70 @@
+html, body {
+    height: 100%;
+    width:500px;
+    background-color: #8dc7fc;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+#id{
+    color:red;
+}
+
+textarea{
+    color:rgb(253, 253, 253);
+    background-color: #a2a2a21f;
+}
+#click-me{
+    color:rgb(0, 0, 0);
+    background-color: rgb(165, 255, 235);
+    width: 10rem;
+    text-align: center;
+    border-radius: 5px;
+    margin:15px;
+}
+#click-me:hover{
+    
+    cursor: pointer;
+    transition: linear 1s;
+
+    color:rgb(255, 255, 255);
+    background-color: rgb(48, 202, 94);
+}
+
+div1{
+    width:1px;
+    margin:12px;
+    border-radius: 10%;
+    text-decoration: none;
+    background-color: rgb(202, 202, 202);
+}
+
+div1:hover{
+    width:1px;
+    margin:12px;
+    transition: width 2s, height 4s;
+    transition: linear 1s;
+    text-decoration: none;
+    border-radius: 10%;
+    background-color: rgb(119, 250, 149);
+}
+
+
+a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
