@@ -71,3 +71,14 @@ a:visited {
   a:active {
     text-decoration: underline;
   }
+
+  .copyr{
+    text-decoration: none;    
+    color: #a4d1fb;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+
+  }
