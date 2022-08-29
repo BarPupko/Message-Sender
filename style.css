@@ -2,6 +2,9 @@ html, body {
     height: 100%;
     width:500px;
     background-color: #8dc7fc;
+    /* google font */
+    font-family: 'Roboto', sans-serif;
+
 }
 
 html {
@@ -92,4 +95,8 @@ a:visited {
     width: 100%;
     text-align: center;
 
+  }
+
+  .labels{
+    font-weight: 700;
   }
