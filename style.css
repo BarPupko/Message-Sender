@@ -82,3 +82,14 @@ a:visited {
     text-align: center;
 
   }
+  .copyr1{
+    text-decoration: none;    
+    color: rgb(255, 255, 255);
+    position: fixed;
+    left: 0;
+    font-size: 10px;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+
+  }
