@@ -56,7 +56,10 @@ div1:hover{
     background-color: rgb(119, 250, 149);
 }
 
-
+.copyright{
+    margin-top:150px;
+    color:#d7dee4;
+}
 a:visited {
     text-decoration: none;
   }
