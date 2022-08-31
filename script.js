@@ -18,10 +18,10 @@ function updateNumbers(){
         var div = document.createElement("div1");
         let link = "";
         //if the first number of the number is 0 then erase it
+        let originalNumber=el
         let startingNum = el.substr(0,3).trim();
         console.log("startingNum:"+startingNum)
         
-        let originalNumber=""
         //israel
         let il=startingNum.substr(0,2);
         if(il=="05")    {
@@ -35,7 +35,6 @@ function updateNumbers(){
             }
         // //canada
         // //226, 249, 289, 343, 365, 416, 437, 519, 548, 613, 647, 705, 807, 905
-        originalNumber=startingNum;
         // if(startingNum==647 || startingNum==249 || startingNum==289 || startingNum==343 
         //         | startingNum==365 || startingNum==416 || startingNum==437)    {
         //         el='1'+el;
