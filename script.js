@@ -1,73 +1,43 @@
-function updateNumbers(){
-    let userInput = document.getElementById("new-bio").value; //getting the output from textarea
-    let userTextInput = document.getElementById("msg").value; //getting the text
-    // console.log("usertext:"+userTextInput);
-   console.log(userTextInput);
-    var lines = userInput.split(/\r|\r\n|\n/);
-    // console.log("lines:"+lines);
-    var count = lines.length;
-    // console.log("row:" + count); // Outputs 4
+let numbersList = []; // Global array to store numbers
 
-    
-    //get element from language combobox
+function updateNumbers() {
+    let userInput = document.getElementById("new-bio").value; // Getting the numbers from textarea
+    let userTextInput = document.getElementById("msg").value; // Getting the message text
 
-    //creating elements with numbers
-
+    var lines = userInput.split(/\r|\r\n|\n/); // Splitting the input into lines
     
     lines.forEach(function(el) {
-        var div = document.createElement("div1");
-        let link = "";
-        //if the first number of the number is 0 then erase it
-        let originalNumber=el
-        let startingNum = el.substr(0,3).trim();
-        console.log("startingNum:"+startingNum)
-        
-        //israel
-        let il=startingNum.substr(0,2);
-        if(il=="05")    {
-                if(el.indexOf(0) == 0){
-                console.log("index0:"+el.indexOf(0));
-                el=el.replace('0','');//remove zeros
-                originalNumber = el;
-                el='972'+el;
-                }
-                    
+        let originalNumber = el.trim();
+        let startingNum = originalNumber.substr(0, 3);
+
+        // Handle numbers starting with 05 (Israel)
+        if (startingNum.startsWith("05")) {
+            if (originalNumber.startsWith("0")) {
+                originalNumber = originalNumber.replace("0", ""); // Remove leading zero
+                el = "972" + originalNumber; // Add Israel country code
             }
-        // //canada
-        // //226, 249, 289, 343, 365, 416, 437, 519, 548, 613, 647, 705, 807, 905
-        // if(startingNum==647 || startingNum==249 || startingNum==289 || startingNum==343 
-        //         | startingNum==365 || startingNum==416 || startingNum==437)    {
-        //         el='1'+el;
-        // }
+        }
 
-       
-        el= el.replace('-','');//remove break between number
-             if(el.includes('-')){//if there are another breake take it off too.
-                el=el.replace('-','');//remove break between number
-            }
-        link = `"https://wa.me/${el}?text=${userTextInput}"\n`//generate link
-        // link = `"https://api.whatsapp.com/send/?phone=%2B${lang}${el}"\n`//generate link
-        let blank = target ="_blank";
-        let rel = "noreferrer noopener";
-        // console.log("lines: " +lines);
-        // console.log("el: " +el);
+        // Remove dashes from the number
+        el = el.replace(/-/g, "");
 
-        //  **** new feature still under development. ****
-        //open new window automaticlly and send the text into this window
-             // div.innerHTML = `\n<a href="${win1}"a>"${el}"</a>\n`;
-        // div.innerHTML = `\n<a href="${win}"a>"${el}"</a>\n`;
-        // div.innerHTML = `<p>${win}</p>`;
-        
+        // Store the number in the global list
+        numbersList.push({ number: el, message: userTextInput });
 
-        //working method
-        div.innerHTML = "\n<a href="+link + blank + rel +"a>"+originalNumber+"</a>\n";
-  
+        // Optionally create a div for display
+        var div = document.createElement("div");
+        div.innerHTML = `
+            <a id=${originalNumber} href="https://wa.me/${el}?text=${encodeURIComponent(userTextInput)}" target="_blank" rel="noopener noreferrer">${originalNumber}</a>
+        `;
         document.body.appendChild(div);
-
-        console.log("copyright bar popko,search me on github")
-        
     });
 
- 
-  };
-
+    console.log("Numbers updated:", numbersList);
+}
+function sendMessageToAll() {
+    numbersList.forEach(({ number, message }) => {
+        let link = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+        window.open(link, "_blank", "noopener noreferrer");
+    });
+    console.log("Messages sent to all numbers!");
+}

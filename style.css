@@ -1,148 +1,87 @@
 html, body {
     height: 100%;
-    width:500px;
+    width: 100%;
     background-color: #8dc7fc;
-    /* google font */
     font-family: 'Roboto', sans-serif;
-
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-html {
-    display: table;
-    margin: auto;
+img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px; /* Adds spacing between elements */
 }
 
-body {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-#id{
-    color:red;
-}
-
-textarea{
-    color:rgb(253, 253, 253);
+textarea {
+    color: rgb(8, 8, 0);
     background-color: #a2a2a21f;
+    width: 300px;
+    height: 100px;
+    margin-bottom: 20px; /* Adds spacing between elements */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-#click-me{
-    color:rgb(0, 0, 0);
+
+#click-me {
+    color: rgb(0, 0, 0);
     background-color: rgb(165, 255, 235);
     width: 10rem;
     text-align: center;
     border-radius: 5px;
-    margin:15px;
+    margin: 15px 0; /* Vertical spacing */
+    padding: 10px;
 }
-#click-me:hover{
-    
+
+#click-me:hover {
     cursor: pointer;
     transition: linear 1s;
-
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     background-color: rgb(48, 202, 94);
 }
 
-div1{
-    width:1px;
-    margin:12px;
-    border-radius: 10%;
-    text-decoration: none;
-    background-color: rgb(202, 202, 202);
+h1 {
+    color: #000;
+    margin-bottom: 20px; /* Adds spacing between elements */
 }
 
-div1:hover{
-    width:1px;
-    margin:12px;
-    transition: width 2s, height 4s;
-    transition: linear 1s;
-    text-decoration: none;
-    border-radius: 10%;
-    background-color: rgb(119, 250, 149);
-}
-
-.copyright{
-    margin-top:150px;
-    color:#d7dee4;
-}
-a:visited {
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  a:active {
-    text-decoration: underline;
-  }
-
-  .copyr{
-    text-decoration: none;    
-    color: #a4d1fb;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-
-  }
-  .copyr1{
-    text-decoration: none;    
-    color: rgb(255, 255, 255);
-    position: fixed;
-    left: 0;
-    font-size: 10px;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-
-  }
-
-  .labels{
+.labels {
     font-weight: 700;
-  }
+    margin-bottom: 10px;
+}
 
-  /* try */
-  .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.copyr {
+    text-decoration: none;
+    color: #000000;
+}
+
+.copyr1 {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+    margin-bottom: 20px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 120px;
-    box-shadow: 0px 8px 16px 
-        0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content ul {
-    color: black;
-    list-style: none;
-    padding: 1px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content ul:hover {
-    background-color: #f1f1f1
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+/* Optional Styling Adjustments for Div and Labels */
+#div1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
 }
