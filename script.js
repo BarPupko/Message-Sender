@@ -217,27 +217,30 @@ const firebaseConfig = {
   measurementId: "G-D9DBQR72K3",
 };
 
-// Init Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  runTransaction,
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const visitorRef = ref(db, "visitorCount");
 
 function trackVisitor() {
   const visitedKey = "wms-visitor";
-  const visitorRef = db.ref("visitorCount");
 
   if (!localStorage.getItem(visitedKey)) {
-    visitorRef
-      .transaction((count) => {
-        return (count || 0) + 1;
-      })
-      .then(() => {
-        localStorage.setItem(visitedKey, "true");
-      });
+    runTransaction(visitorRef, (count) => (count || 0) + 1)
+      .then(() => localStorage.setItem(visitedKey, "true"))
+      .catch(console.error);
   }
 
-  visitorRef.on("value", (snapshot) => {
-    const count = snapshot.val() || 0;
-    document.getElementById("visit-count").textContent = count;
+  onValue(visitorRef, (snapshot) => {
+    document.getElementById("visit-count").textContent = snapshot.val() || 0;
   });
 }
 
