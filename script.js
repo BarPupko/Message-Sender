@@ -87,7 +87,6 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
   }
 });
 let numbersList = [];
-
 function updateNumbers() {
   const userInput = document.getElementById("new-bio").value;
   const userTextInput = document.getElementById("msg").value;
@@ -97,16 +96,19 @@ function updateNumbers() {
   div2.innerHTML = "";
   numbersList = [];
 
-  const lines = userInput.split(/\r|\r\n|\n/);
+  const numberOnlyRegex = /^\d+$/; // Only digits allowed
+
+  const lines = userInput.split(/\r?\n/);
 
   lines.forEach((el) => {
     let originalNumber = el.trim();
-    if (!originalNumber) return;
+    if (!originalNumber || !numberOnlyRegex.test(originalNumber)) {
+      console.warn(`Skipped invalid line: "${originalNumber}"`);
+      return;
+    }
 
-    // Clean number
     originalNumber = originalNumber.replace(/[^0-9]/g, "");
 
-    // Add selected country code if not already present
     if (!originalNumber.startsWith(selectedCode)) {
       if (originalNumber.startsWith("0")) {
         originalNumber = selectedCode + originalNumber.slice(1);
@@ -132,6 +134,7 @@ function updateNumbers() {
 
   console.log("Numbers updated:", numbersList);
 }
+
 function sendMessageToAll() {
   if (!numbersList.length) {
     alert("No numbers to send to. Please update the list first.");
