@@ -1,43 +1,50 @@
-let numbersList = []; // Global array to store numbers
+let numbersList = [];
 
 function updateNumbers() {
-    let userInput = document.getElementById("new-bio").value; // Getting the numbers from textarea
-    let userTextInput = document.getElementById("msg").value; // Getting the message text
+  let userInput = document.getElementById("new-bio").value;
+  let userTextInput = document.getElementById("msg").value;
+  let div2 = document.getElementById("div2");
+  div2.innerHTML = "";
+  numbersList = [];
 
-    var lines = userInput.split(/\r|\r\n|\n/); // Splitting the input into lines
-    
-    lines.forEach(function(el) {
-        let originalNumber = el.trim();
-        let startingNum = originalNumber.substr(0, 3);
+  const lines = userInput.split(/\r|\r\n|\n/);
 
-        // Handle numbers starting with 05 (Israel)
-        if (startingNum.startsWith("05")) {
-            if (originalNumber.startsWith("0")) {
-                originalNumber = originalNumber.replace("0", ""); // Remove leading zero
-                el = "972" + originalNumber; // Add Israel country code
-            }
-        }
+  lines.forEach(function (el) {
+    let originalNumber = el.trim();
+    if (!originalNumber) return;
 
-        // Remove dashes from the number
-        el = el.replace(/-/g, "");
+    if (originalNumber.startsWith("05")) {
+      originalNumber = originalNumber.replace(/^0/, "972");
+    }
 
-        // Store the number in the global list
-        numbersList.push({ number: el, message: userTextInput });
+    let cleanNumber = originalNumber.replace(/-/g, "");
+    numbersList.push({ number: cleanNumber, message: userTextInput });
 
-        // Optionally create a div for display
-        var div = document.createElement("div");
-        div.innerHTML = `
-            <a id=${originalNumber} href="https://wa.me/${el}?text=${encodeURIComponent(userTextInput)}" target="_blank" rel="noopener noreferrer">${originalNumber}</a>
-        `;
-        document.body.appendChild(div);
-    });
+    const link = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(
+      userTextInput
+    )}`;
+    const anchor = document.createElement("a");
+    anchor.className = "bubble";
+    anchor.href = link;
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+    anchor.textContent = cleanNumber;
+    div2.appendChild(anchor);
+  });
 
-    console.log("Numbers updated:", numbersList);
+  console.log("Numbers updated:", numbersList);
 }
+
 function sendMessageToAll() {
-    numbersList.forEach(({ number, message }) => {
-        let link = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-        window.open(link, "_blank", "noopener noreferrer");
-    });
-    console.log("Messages sent to all numbers!");
+  if (!numbersList.length) {
+    alert("No numbers to send to. Please update the list first.");
+    return;
+  }
+
+  numbersList.forEach(({ number, message }) => {
+    const link = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+    window.open(link, "_blank", "noopener,noreferrer");
+  });
+
+  console.log("Messages sent to all numbers!");
 }

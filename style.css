@@ -1,87 +1,96 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    background-color: #8dc7fc;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #8dc7fc;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 img {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px; /* Adds spacing between elements */
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px; /* Adds spacing between elements */
 }
-
+.bubble {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 3px;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
 textarea {
-    color: rgb(8, 8, 0);
-    background-color: #a2a2a21f;
-    width: 300px;
-    height: 100px;
-    margin-bottom: 20px; /* Adds spacing between elements */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  color: rgb(8, 8, 0);
+  background-color: #a2a2a21f;
+  width: 300px;
+  height: 100px;
+  margin-bottom: 20px; /* Adds spacing between elements */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 #click-me {
-    color: rgb(0, 0, 0);
-    background-color: rgb(165, 255, 235);
-    width: 10rem;
-    text-align: center;
-    border-radius: 5px;
-    margin: 15px 0; /* Vertical spacing */
-    padding: 10px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(165, 255, 235);
+  width: 10rem;
+  text-align: center;
+  border-radius: 5px;
+  margin: 15px 0; /* Vertical spacing */
+  padding: 10px;
 }
 
 #click-me:hover {
-    cursor: pointer;
-    transition: linear 1s;
-    color: rgb(255, 255, 255);
-    background-color: rgb(48, 202, 94);
+  cursor: pointer;
+  transition: linear 1s;
+  color: rgb(255, 255, 255);
+  background-color: rgb(48, 202, 94);
 }
 
 h1 {
-    color: #000;
-    margin-bottom: 20px; /* Adds spacing between elements */
+  color: #000;
+  margin-bottom: 20px; /* Adds spacing between elements */
 }
 
 .labels {
-    font-weight: 700;
-    margin-bottom: 10px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 footer {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .copyr {
-    text-decoration: none;
-    color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 
 .copyr1 {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 10px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 10px;
 }
 
 .dropdown {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Optional Styling Adjustments for Div and Labels */
 #div1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 500px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
 }

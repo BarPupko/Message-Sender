@@ -1,66 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="https://cdn-icons-png.flaticon.com/512/831/831264.png"
-    />
 
-    <title>WMS</title>
-  </head>
-  <body>
-    <img
-      src="./image.png"
-      alt="gif"
-    />
-    <h1>Whatsapp Message Sender</h1>
-    <form id="form-1"></form>
-    <div id="div1">
-      <label for="newbio">Get Whatsapp links:</label>
-      <p></p>
-      <label class="labels">Enter text</label>
-      <textarea
-        id="msg"
-        type="text"
-        placeholder="Your message here "
-        width="148"
-        height="148"
-      ></textarea>
-      
-      
-      <p>Enter list of number one by one , and press update</p>
-      <textarea
-      type="text"
-      rows="10"
-      pattern=""
-      placeholder="Enter numbers: 0526333958 "
-      cols="50"
-      id="new-bio"
-      name="newbio"
-      ></textarea>
-      <div id="div2"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WMS - WhatsApp Message Sender</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/831/831264.png" type="image/x-icon" />
+  <script defer src="script.js"></script>
+</head>
 
-      <div id="click-me" onclick="updateNumbers()">Update</div>
-      <div id="click-me1" onclick="sendMessageToAll()">Send message to all</div>
+<body class="d-flex flex-column justify-content-center align-items-center min-vh-100 bg-light">
+  <div class="text-center">
+    <img src="./image.png" alt="Logo" class="img-fluid mb-3" style="width: 150px; height: 150px;" />
+    <h1 class="mb-4">WhatsApp Message Sender</h1>
+  </div>
+
+  <div class="card shadow-sm p-4" style="max-width: 600px; width: 100%;">
+    <div class="mb-3">
+      <label for="msg" class="form-label fw-bold">Enter your message</label>
+      <textarea id="msg" class="form-control" rows="3" placeholder="Your message here..."></textarea>
     </div>
 
-    </footer>
-  <footer>
-    <a class="copyr" href="https://github.com/BarPupko/Message-Sender"
-      ><span>&copy;</span> BarPopko</a
-    >
-    <p class="copyr1">version 0.0.1</p>
+    <div class="mb-3">
+      <label for="new-bio" class="form-label fw-bold">Enter numbers (one per line)</label>
+      <textarea id="new-bio" class="form-control" rows="5" placeholder="0526333958\n0541234567"></textarea>
+    </div>
+
+    <div class="d-grid gap-2 mb-3">
+      <button class="btn btn-primary" onclick="updateNumbers()">Update Numbers</button>
+      <button class="btn btn-success" onclick="sendMessageToAll()">Send Message to All</button>
+    </div>
+
+    <div id="div2" class="mt-3"></div>
+  </div>
+
+  <footer class="mt-4 text-center">
+    <a class="text-decoration-none text-dark" href="https://github.com/BarPupko/Message-Sender">
+      <span>&copy;</span> BarPopko</a>
+    <p class="text-muted" style="font-size: 0.8rem;">Version 0.0.1</p>
+  </footer>
 </body>
+
 </html>
