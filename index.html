@@ -27,13 +27,24 @@
     </div>
 
     <div class="mb-3">
+      <label for="country-code" class="form-label fw-bold">Select Country Code</label>
+      <select id="country-code" class="form-select mb-2">
+        <option value="972">🇮🇱 Israel (+972)</option>
+        <option value="1">🇨🇦 Canada (+1)</option>
+      </select>
+
       <label for="new-bio" class="form-label fw-bold">Enter numbers (one per line)</label>
       <textarea id="new-bio" class="form-control" rows="5" placeholder="0526333958\n0541234567"></textarea>
     </div>
 
+    <div class="mb-3">
+      <label for="fileInput" class="form-label fw-bold">Or upload CSV file with numbers</label>
+      <input type="file" id="fileInput" class="form-control" accept=".csv" onchange="handleFileUpload(event)" />
+    </div>
+
     <div class="d-grid gap-2 mb-3">
       <button class="btn btn-primary" onclick="updateNumbers()">Update Numbers</button>
-      <button class="btn btn-success" onclick="sendMessageToAll()">Send Message to All</button>
+      <button class="btn btn-success" onclick="sendMessageToAll()">Send to All</button>
     </div>
 
     <div id="div2" class="mt-3"></div>
