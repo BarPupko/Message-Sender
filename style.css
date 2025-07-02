@@ -62,10 +62,10 @@ h1 {
   margin-bottom: 10px;
 }
 
-footer {
-  margin-top: 20px;
-  text-align: center;
-}
+.footer-links a:hover {
+    text-decoration: underline;
+    color: #007bff;
+  }
 
 .copyr {
   text-decoration: none;
