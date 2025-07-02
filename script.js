@@ -173,3 +173,10 @@ function handleFileUpload(event) {
   };
   reader.readAsText(file);
 }
+document.getElementById("info-toggle").addEventListener("mouseenter", () => {
+  document.getElementById("info-popup").classList.add("active");
+});
+
+document.getElementById("info-popup").addEventListener("mouseleave", () => {
+  document.getElementById("info-popup").classList.remove("active");
+});
