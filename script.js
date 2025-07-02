@@ -183,3 +183,24 @@ document.getElementById("info-toggle").addEventListener("mouseenter", () => {
 document.getElementById("info-popup").addEventListener("mouseleave", () => {
   document.getElementById("info-popup").classList.remove("active");
 });
+function downloadNumbersCSV() {
+  const textarea = document.getElementById("new-bio");
+  const lines = textarea.value
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  if (lines.length === 0) {
+    alert("No numbers to download.");
+    return;
+  }
+
+  const csvContent = "data:text/csv;charset=utf-8," + lines.join("\n");
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "whatsapp_numbers.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}

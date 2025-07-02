@@ -53,10 +53,14 @@
       <label for="new-bio" class="form-label fw-bold">Enter numbers (one per line)</label>
       <textarea id="new-bio" class="form-control" rows="5"
         placeholder="Enter a 9-digit phone number, e.g., 526123321 or 647111222"></textarea>
+      <button class="btn btn-outline-secondary" onclick="downloadNumbersCSV()">Download CSV</button>
+
+
     </div>
 
     <div class=" mb-3">
       <label for="fileInput" class="form-label fw-bold">Or upload CSV file with numbers</label>
+
       <input type="file" id="fileInput" class="form-control" accept=".csv" onchange="handleFileUpload(event)" />
     </div>
 
