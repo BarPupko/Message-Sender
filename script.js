@@ -1,3 +1,62 @@
+document
+  .getElementById("country-code")
+  .addEventListener("change", handleThemeChange);
+
+function handleThemeChange() {
+  const selectedCode = document.getElementById("country-code").value;
+  const card = document.getElementById("main-card");
+  const signal = document.getElementById("signal-indicator");
+
+  if (selectedCode === "972") {
+    document.body.style.backgroundColor =
+      selectedCode === "972" ? "#f0f8ff" : "#fff0f0";
+    card.style.backgroundColor = "#e9f5ff";
+    card.style.color = "#000";
+    signal.style.backgroundColor = "#007bff"; // blue
+  } else if (selectedCode === "1") {
+    document.body.style.backgroundColor = "#fff0f0";
+    card.style.backgroundColor = "#ffe9e9";
+    card.style.color = "#000";
+    signal.style.backgroundColor = "#dc3545"; // red
+  }
+}
+
+// initialize with default theme
+handleThemeChange();
+document.getElementById("theme-icon").textContent = "☀️";
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  const body = document.body;
+  const card = document.getElementById("main-card");
+  const isDark = body.classList.toggle("dark-mode");
+
+  if (isDark) {
+    document.body.classList.add("dark-background");
+    document.body.style.backgroundColor = "#121212";
+    card.style.backgroundColor = "#1e1e1e";
+    card.style.color = "#ffffff";
+    document.getElementById("msg").style.backgroundColor = "#2c2c2c";
+    document.getElementById("msg").style.color = "#ffffff";
+    document.getElementById("new-bio").style.backgroundColor = "#2c2c2c";
+    document.getElementById("new-bio").style.color = "#ffffff";
+    document.getElementById("fileInput").style.backgroundColor = "#2c2c2c";
+    document.getElementById("fileInput").style.color = "#ffffff";
+    document.getElementById("theme-icon").textContent = "🌙";
+  } else {
+    document.body.classList.remove("dark-background");
+    document.body.style.backgroundColor = "";
+    card.style.backgroundColor = "";
+    card.style.color = "";
+    document.getElementById("msg").style.backgroundColor = "";
+    document.getElementById("msg").style.color = "";
+    document.getElementById("new-bio").style.backgroundColor = "";
+    document.getElementById("new-bio").style.color = "";
+    document.getElementById("fileInput").style.backgroundColor = "";
+    document.getElementById("fileInput").style.color = "";
+    document.getElementById("theme-icon").textContent = "☀️";
+    handleThemeChange();
+  }
+});
 let numbersList = [];
 function updateNumbers() {
   const userInput = document.getElementById("new-bio").value;

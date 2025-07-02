@@ -19,8 +19,15 @@
     <img src="./image.png" alt="Logo" class="img-fluid mb-3" style="width: 150px; height: 150px;" />
     <h1 class="mb-4">WhatsApp Message Sender</h1>
   </div>
+  <div class="card shadow-sm p-4 position-relative" id="main-card" style="max-width: 600px; width: 100%;">
 
-  <div class="card shadow-sm p-4" style="max-width: 600px; width: 100%;">
+    <div id="signal-indicator"
+      style="position: absolute; top: 10px; right: 50px; width: 15px; height: 15px; border-radius: 50%; background-color: #007bff;">
+    </div>
+    <button id="theme-toggle" class="btn btn-sm position-absolute d-flex align-items-center justify-content-center"
+      style="top: 10px; right: 10px; z-index: 10; width: 15px; height: 16px; border-radius: 50%; border: none;">
+      <span id="theme-icon" style="font-size: 16px;">☀️</span>
+    </button>
     <div class="mb-3">
       <label for="msg" class="form-label fw-bold">Enter your message</label>
       <textarea id="msg" class="form-control" rows="3" placeholder="Your message here..."></textarea>
@@ -34,10 +41,11 @@
       </select>
 
       <label for="new-bio" class="form-label fw-bold">Enter numbers (one per line)</label>
-      <textarea id="new-bio" class="form-control" rows="5" placeholder="0526333958\n0541234567"></textarea>
+      <textarea id="new-bio" class="form-control" rows="5"
+        placeholder="Enter a 9-digit phone number, e.g., 526123321 or 647111222"></textarea>
     </div>
 
-    <div class="mb-3">
+    <div class=" mb-3">
       <label for="fileInput" class="form-label fw-bold">Or upload CSV file with numbers</label>
       <input type="file" id="fileInput" class="form-control" accept=".csv" onchange="handleFileUpload(event)" />
     </div>
@@ -53,7 +61,7 @@
   <footer class="mt-4 text-center">
     <a class="text-decoration-none text-dark" href="https://github.com/BarPupko/Message-Sender">
       <span>&copy;</span> BarPopko</a>
-    <p class="text-muted" style="font-size: 0.8rem;">Version 0.0.1</p>
+    <p class="text-muted" style="font-size: 0.8rem;">Version 0.0.2</p>
   </footer>
 </body>
 
