@@ -10,6 +10,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+  <!-- Firebase App (core) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+
+  <!-- Realtime Database -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
+
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/831/831264.png" type="image/x-icon" />
   <script defer src="script.js"></script>
 </head>
@@ -82,10 +88,11 @@
         <a href="https://ivritours.com" target="_blank" class="mx-2 text-decoration-none text-secondary">Ivritours</a> |
         <a href="https://www.facebook.com/Ivritours" target="_blank" class="mx-2 text-decoration-none text-secondary">FB
           - Ivritours</a> |
-
+       
       </small>
     </div>
   </footer>
+  <div id="visitor-counter" class="position-fixed text-muted small">👁️ Visitors: <span id="visit-count">0</span></div>
 
 </body>
 

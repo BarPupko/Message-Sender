@@ -204,3 +204,41 @@ function downloadNumbersCSV() {
   link.click();
   document.body.removeChild(link);
 }
+
+// Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyDewVbT4jJiHtbzP-esVd5b3XGLkzPDcuI",
+  authDomain: "carmitarchitecture.firebaseapp.com",
+  databaseURL: "https://carmitarchitecture-default-rtdb.firebaseio.com",
+  projectId: "carmitarchitecture",
+  storageBucket: "carmitarchitecture.firebasestorage.app",
+  messagingSenderId: "178132110868",
+  appId: "1:178132110868:web:df0ccece30b5ad91caa101",
+  measurementId: "G-D9DBQR72K3",
+};
+
+// Init Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+function trackVisitor() {
+  const visitedKey = "wms-visitor";
+  const visitorRef = db.ref("visitorCount");
+
+  if (!localStorage.getItem(visitedKey)) {
+    visitorRef
+      .transaction((count) => {
+        return (count || 0) + 1;
+      })
+      .then(() => {
+        localStorage.setItem(visitedKey, "true");
+      });
+  }
+
+  visitorRef.on("value", (snapshot) => {
+    const count = snapshot.val() || 0;
+    document.getElementById("visit-count").textContent = count;
+  });
+}
+
+trackVisitor();
