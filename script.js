@@ -21,7 +21,7 @@ function handleThemeChange() {
     document.getElementById("new-bio").style.textAlign = "right";
     msgLabel.textContent = "הזן את ההודעה שלך";
     bioLabel.textContent = "הזן מספרים (כל שורה מספר)";
-    fileLabel.textContent = "או העלה קובץ CSV עם מספרים";
+    fileLabel.textContent = "אעלה קובץ מסוג CSV עם מספרים";
     updateBtn.textContent = "עדכן מספרים";
     sendBtn.textContent = "שלח לכולם";
     countryLabel.textContent = "בחר קידומת מדינה";
