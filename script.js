@@ -14,8 +14,7 @@ function handleThemeChange() {
   const signal = document.getElementById("signal-indicator");
   if (selectedCode === "972") {
     document.getElementById("msg").placeholder = "כתוב את ההודעה שלך כאן...";
-    document.getElementById("new-bio").placeholder =
-      "לדוגמה: 05263339580541234567";
+    document.getElementById("new-bio").placeholder = "לדוגמה: 0526111222";
     document.getElementById("msg").dir = "rtl";
     document.getElementById("new-bio").dir = "rtl";
     document.getElementById("msg").style.textAlign = "right";
